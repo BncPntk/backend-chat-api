@@ -1,0 +1,19 @@
+meta {
+  name: asd
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://backend-chat-api-v2.test/api/v1/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "admin@google.com",
+    "password": "123abcde"
+  }
+  
+}
