@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Request;
@@ -30,4 +31,6 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::post('/friends/{id}', [FriendController::class, 'add']);
     Route::get('/friends', [FriendController::class, 'index']);
 
+    Route::post('/messages/{receiver}', [MessageController::class, 'send']);
+    Route::get('/messages/{user}', [MessageController::class, 'conversation']);
 });
