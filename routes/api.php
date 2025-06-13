@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,9 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 })->middleware(['auth:sanctum', 'signed'])->name('verification.verify');
 
 
-
 Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
+
+    Route::get('/users', [UserController::class, 'index']);
 
     Route::post('/friends/{id}', [FriendController::class, 'add']);
     Route::get('/friends', [FriendController::class, 'index']);
