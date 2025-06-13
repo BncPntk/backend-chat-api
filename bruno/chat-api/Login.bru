@@ -1,0 +1,19 @@
+meta {
+  name: Login
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://chat-api.test/api/v1/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "test@google.com",
+    "password": "123abcde"
+  }
+  
+}

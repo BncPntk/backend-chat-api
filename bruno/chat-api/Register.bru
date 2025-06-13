@@ -1,0 +1,25 @@
+meta {
+  name: Register
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://chat-api.test/api/v1/register
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Test User",
+    "email": "test@google.com",
+    "password": "123abcde",
+    "password_confirmation": "123abcde"
+  }
+}
